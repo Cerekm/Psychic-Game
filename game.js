@@ -1,7 +1,7 @@
 var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var yourChoices = []
 
-// Creating variables to hold the number of wins, losses, and ties. They start at 0.
+// Creating variables to hold the number of wins, losses, and amount of guesses left. 
 var wins = 0;
 var losses = 0;
 var guessesLeft = 9;
