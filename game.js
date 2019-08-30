@@ -30,30 +30,39 @@ document.onkeyup = function (event) {
     var userGuess = event.key;
     yourChoices.push(userGuess);
 
-    // Randomly chooses a choice from the options array. This is the Computer's guess.
+    
     
 
 
-    // Reworked our code from last step to use "else if" instead of lots of if statements.
+   
 
-    // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
+    // This logic determines the outcome of the game (win/loss), and increments the appropriate number
     if (userGuess === computerGuess) {
         wins++;
 
     } else {
-        guessesLeft - 1;
+       guessesLeft = guessesLeft - 1;
     }
-    if (guessesLeft = 0) {
+    if (guessesLeft === 0) {
         losses++;
     }
 
-   
-            // Hide the directions
-            directionsText.textContent = "";
+    if (guessesLeft === 0) {
+        var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+    }
+
+    if (guessesLeft === 0) {
+        yourChoices = [];
+    }
+    if (guessesLeft === 0) {
+        guessesLeft = 9;
+    }
+        
+
 
             // Display the user and computer guesses, and wins/losses/ties.
             userChoiceText.textContent = "You chose: " + yourChoices;
-             winsText.textContent = "wins: " + wins;
+            winsText.textContent = "wins: " + wins;
             lossesText.textContent = "losses: " + losses;
             guessesText.textContent = "guesses left: " + guessesLeft;
         }
