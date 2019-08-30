@@ -19,6 +19,7 @@ var guessesText = document.getElementById("guesses-text");
 
 
 var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+console.log(computerGuess);
 
 
 
@@ -30,40 +31,37 @@ document.onkeyup = function (event) {
     var userGuess = event.key;
     yourChoices.push(userGuess);
 
-    
-    
 
 
-   
 
-    // This logic determines the outcome of the game (win/loss), and increments the appropriate number
+
+
+
+    // This logic determines the outcome of the game (win/loss/guesses left/computer choice), and increments the appropriate number
     if (userGuess === computerGuess) {
         wins++;
+        computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+        yourChoices = [];
+        guessesLeft = 9;
+        console.log(computerGuess);
 
     } else {
-       guessesLeft = guessesLeft - 1;
+        guessesLeft = guessesLeft - 1;
     }
     if (guessesLeft === 0) {
         losses++;
-    }
-
-    if (guessesLeft === 0) {
-        var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-    }
-
-    if (guessesLeft === 0) {
+        computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
         yourChoices = [];
-    }
-    if (guessesLeft === 0) {
         guessesLeft = 9;
     }
-        
 
 
-            // Display the user and computer guesses, and wins/losses/ties.
-            userChoiceText.textContent = "You chose: " + yourChoices;
-            winsText.textContent = "wins: " + wins;
-            lossesText.textContent = "losses: " + losses;
-            guessesText.textContent = "guesses left: " + guessesLeft;
-        }
-    
+
+
+    // Display the user and computer guesses, and wins/losses/ties.
+    userChoiceText.textContent = "You chose: " + yourChoices;
+    winsText.textContent = "wins: " + wins;
+    lossesText.textContent = "losses: " + losses;
+    guessesText.textContent = "guesses left: " + guessesLeft;
+}
+
